@@ -1,9 +1,11 @@
-from src.auth import authenticate
+from src.auth import login
 
 
 def test_valid_authentication():
-    assert authenticate("student", "python123") is True
+    result = login("admin", "admin123")
+    assert result == "Login successful"
 
 
 def test_invalid_authentication():
-    assert authenticate("student", "wrong-password") is False
+    result = login("admin", "wrong123")
+    assert result == "Invalid username or password"
