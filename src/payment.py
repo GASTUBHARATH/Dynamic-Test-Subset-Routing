@@ -1,6 +1,24 @@
-"""Simple payment validation helpers."""
+
+"""
+Payment module for Dynamic Test-Subset Routing.
+"""
 
 
-def process_payment(amount: float) -> bool:
-    """Return whether a payment amount is valid."""
-    return isinstance(amount, (int, float)) and not isinstance(amount, bool) and amount > 0
+def process_payment(amount):
+    """
+    Validate and process a payment.
+
+    Args:
+        amount: Payment amount.
+
+    Returns:
+        Payment result message.
+    """
+
+    if amount <= 0:
+        return "Invalid payment amount"
+
+    if amount > 100000:
+        return "Payment amount exceeds the allowed limit"
+
+    return "Payment successful"
