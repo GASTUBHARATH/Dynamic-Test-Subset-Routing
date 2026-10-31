@@ -6,19 +6,17 @@ Payment module for Dynamic Test-Subset Routing.
 
 def process_payment(amount):
     """
-    Validate and process a payment.
-
-    Args:
-        amount: Payment amount.
+    Validate a payment amount.
 
     Returns:
-        Payment result message.
+        True if payment is valid.
+        False if payment is invalid.
     """
 
     if amount <= 0:
-        return "Invalid payment amount"
+        return False
 
     if amount > 100000:
-        return "Payment amount exceeds the allowed limit"
+        return False
 
-    return "Payment successful"
+    return True
