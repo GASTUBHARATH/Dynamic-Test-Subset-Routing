@@ -1,6 +1,12 @@
-"""Simple authentication helpers."""
+def login(username, password):
+    """
+    Authenticate a user using username and password.
+    """
 
+    if username == "admin" and password == "admin123":
+        return "Login successful"
 
-def authenticate(username: str, password: str) -> bool:
-    """Return whether the supplied credentials are valid."""
-    return bool(username and password and username == "student" and password == "python123")
+    if not username or not password:
+        return "Username and password are required"
+
+    return "Invalid username or password"
